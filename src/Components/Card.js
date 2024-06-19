@@ -1,19 +1,47 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { UseDispatchCart, useCart } from "./ContextReducer";
+function Card(props) {
+  let dispatch = UseDispatchCart();
+  let data = useCart();
+  const priceRef = useRef();
+  let options = props.options;
+  let priceOptions = Object.keys(options);
 
-function Card() {
+  const [qty, setQty] = useState(1);
+  const [size, setSize] = useState("");
+  const handleAddToCart = async () => {
+    await dispatch({
+      type: "ADD",
+      id: props.foodItem._id,
+      name: props.foodItem.name,
+      price: finalPrice,
+      qty: qty,
+      size: size,
+    });
+    await console.log(data);
+  };
+  let finalPrice = qty * parseInt(options[size]);
+  useEffect(() => {
+    setSize(priceRef.current.value);
+  }, []);
   return (
     <div>
       <div className="card mt-3" style={{ width: "18rem", maxHeight: "360px" }}>
         <img
-          src="https://img.onmanorama.com/content/dam/mm/en/food/recipe/images/2024/1/3/paneer-tikka.jpg"
+          src={props.foodItem.img}
           className="card-img-top"
           alt="..."
+          style={{ height: "120px", objectFit: "fill" }}
         />
         <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">This is important text.</p>
+          <h5 className="card-title">{props.foodItem.name}</h5>
           <div className="container w-100">
-            <select className="m-2 h-100  bg-success rounded">
+            <select
+              className="m-2 h-100  bg-success rounded"
+              onChange={(e) => {
+                setQty(e.target.value);
+              }}
+            >
               {Array.from(Array(6), (e, i) => {
                 return (
                   <option key={i + 1} value={i + 1}>
@@ -22,12 +50,30 @@ function Card() {
                 );
               })}
             </select>
-            <select className="m-2 h-100  bg-success rounded">
-              <option value="half">Half</option>
-              <option value="full">Full</option>
+            <select
+              className="m-2 h-100  bg-success rounded"
+              ref={priceRef}
+              onChange={(e) => {
+                setSize(e.target.value);
+              }}
+            >
+              {priceOptions.map((data) => {
+                return (
+                  <option key={data} value={data}>
+                    {data}
+                  </option>
+                );
+              })}
             </select>
-            <div className="d-inline h-100 fs-5">Total Price</div>
+            <div className="d-inline h-100 fs-5">₹{finalPrice}/-</div>
           </div>
+          <hr></hr>
+          <button
+            className={`btn btn-success justify-center ms-2`}
+            onClick={handleAddToCart}
+          >
+            Add To Cart
+          </button>
         </div>
       </div>
     </div>

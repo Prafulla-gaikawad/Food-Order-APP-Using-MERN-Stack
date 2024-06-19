@@ -3,28 +3,30 @@ import React from "react";
 function Carousal() {
   return (
     <div>
-      <div
-        id="carouselExampleFade"
-        className="carousel slide carousel-fade"
-        data-bs-ride="carousel"
-        style={{ objectFit: "contain !important" }}
-      >
-        <div className="carousel-inner" id="carousel">
-          <div className="carousel-caption" style={{ zIndex: "10" }}>
-            <form className="d-flex ">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button
-                className="btn btn-outline-success text-white bg-success"
-                type="submit"
-              >
-                Search
-              </button>
-            </form>
+      <div>
+        <div
+          id="carouselExampleFade"
+          className="carousel slide carousel-fade"
+          data-bs-ride="carousel"
+          style={{ objectFit: "contain !important" }}
+        >
+          <div className="carousel-inner" id="carousel">
+            <div className="carousel-caption" style={{ zIndex: "10" }}>
+              <form className="d-flex ">
+                <input
+                  className="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button
+                  className="btn btn-outline-success text-white bg-success"
+                  type="submit"
+                >
+                  Search
+                </button>
+              </form>
+            </div>
           </div>
 
           <div className="carousel-item active">
@@ -37,7 +39,7 @@ function Carousal() {
           </div>
           <div className="carousel-item">
             <img
-              src="https://source.unsplash.com/random/300×300/?chips"
+              src="https://source.unsplash.com/random/300×300/?noodles"
               className="d-block w-100"
               style={{ filter: "brightness(30%)" }}
               alt="..."
