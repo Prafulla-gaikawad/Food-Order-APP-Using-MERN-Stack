@@ -19,17 +19,14 @@ export default function Cart() {
 
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
-    // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch("http://localhost:5000/api/auth/orderData", {
-      // credentials: 'include',
-      // Origin:"http://localhost:3000/login",
+    let response = await fetch("http://localhost:5000/api/orderData", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        order_data: data,
         email: userEmail,
+        order_data: data,
         order_date: new Date().toDateString(),
       }),
     });
@@ -64,7 +61,7 @@ export default function Cart() {
                 <td>{food.size}</td>
                 <td>{food.price}</td>
                 <td>
-                  <button type="button" className="btn p-0 ">
+                  <button type="button" className="btn btn-light p-0 ">
                     <Delete
                       onClick={() => {
                         dispatch({ type: "REMOVE", index: index });
