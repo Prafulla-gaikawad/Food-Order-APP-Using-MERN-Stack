@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../Components/Navbar";
 
 function Login() {
   const [credentials, setcredentials] = useState({
@@ -43,12 +44,75 @@ function Login() {
   const onChange = (event) => {
     setcredentials({ ...credentials, [event.target.name]: event.target.value });
   };
+  //   return (
+  //     <div>
+  //       <div className="container">
+  //         <form onSubmit={handleSubmit}>
+  //           <div className="mb-3">
+  //             <label htmlFor="exampleInputEmail1" className="form-label">
+  //               Email address
+  //             </label>
+  //             <input
+  //               type="email"
+  //               className="form-control"
+  //               name="email"
+  //               value={credentials.email}
+  //               onChange={onChange}
+  //               id="exampleInputEmail1"
+  //               aria-describedby="emailHelp"
+  //             />
+  //             <div id="emailHelp" className="form-text">
+  //               We'll never share your email with anyone else.
+  //             </div>
+  //           </div>
+  //           <div className="mb-3">
+  //             <label htmlFor="exampleInputPassword1" className="form-label">
+  //               Password
+  //             </label>
+  //             <input
+  //               type="password"
+  //               className="form-control"
+  //               name="password"
+  //               value={credentials.password}
+  //               onChange={onChange}
+  //               id="exampleInputPassword1"
+  //             />
+  //           </div>
+
+  //           <button type="submit" className="m-3 btn btn-success">
+  //             Submit
+  //           </button>
+  //           <Link to="/creatuser" className="m-3 btn btn-danger">
+  //             I'm a new user
+  //           </Link>
+  //         </form>
+  //       </div>
+  //     </div>
+  //   );
+  // }
+
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage:
+          'url("https://images.pexels.com/photos/326278/pexels-photo-326278.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")',
+        height: "100vh",
+        backgroundSize: "cover",
+      }}
+    >
+      <div>
+        <Navbar />
+      </div>
       <div className="container">
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
+        <form
+          className="w-50 m-auto mt-5 border bg-dark border-success rounded"
+          onSubmit={handleSubmit}
+        >
+          <div className="m-3">
+            <label
+              htmlFor="exampleInputEmail1"
+              className="form-label text-light"
+            >
               Email address
             </label>
             <input
@@ -57,32 +121,32 @@ function Login() {
               name="email"
               value={credentials.email}
               onChange={onChange}
-              id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
             <div id="emailHelp" className="form-text">
-              We'll never share your email with anyone else.
+              We'll never share your email with anyone.
             </div>
           </div>
-          <div className="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">
+          <div className="m-3">
+            <label
+              htmlFor="exampleInputPassword1"
+              className="form-label text-light"
+            >
               Password
             </label>
             <input
               type="password"
               className="form-control"
-              name="password"
               value={credentials.password}
               onChange={onChange}
-              id="exampleInputPassword1"
+              name="password"
             />
           </div>
-
           <button type="submit" className="m-3 btn btn-success">
             Submit
           </button>
-          <Link to="/creatuser" className="m-3 btn btn-danger">
-            I'm a new user
+          <Link to="/signup" className="m-3 mx-1 btn btn-danger">
+            New User
           </Link>
         </form>
       </div>

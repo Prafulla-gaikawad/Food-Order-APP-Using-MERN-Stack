@@ -52,14 +52,11 @@ function Home() {
                     setSearch(e.target.value);
                   }}
                 />
-                {/* <button class="btn btn-outline-success" type="submit">
-                  Search
-                </button> */}
               </div>
             </div>
             <div className="carousel-item active">
               <img
-                src="https://foodish-api.herokuapp.com/images/burger/burger6.jpg"
+                src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg"
                 className="d-block w-100"
                 style={{ filter: "brightness(30%)" }}
                 alt="..."
@@ -67,7 +64,7 @@ function Home() {
             </div>
             <div className="carousel-item">
               <img
-                src="https://foodish-api.herokuapp.com/images/pasta/pasta6.jpg"
+                src="https://images.pexels.com/photos/533325/pexels-photo-533325.jpeg"
                 className="d-block w-100"
                 style={{ filter: "brightness(30%)" }}
                 alt="..."
@@ -75,7 +72,7 @@ function Home() {
             </div>
             <div className="carousel-item">
               <img
-                src="https://foodish-api.herokuapp.com/images/pizza/pizza6.jpg"
+                src="https://images.pexels.com/photos/410648/pexels-photo-410648.jpeg"
                 className="d-block w-100"
                 style={{ filter: "brightness(30%)" }}
                 alt="..."
