@@ -1,5 +1,4 @@
 import React from "react";
-import Delete from "@material-ui/icons/Delete";
 import { UseDispatchCart, useCart } from "../Components/ContextReducer";
 import { baseURL } from "../URLs";
 export default function Cart() {
@@ -12,10 +11,6 @@ export default function Cart() {
       </div>
     );
   }
-  // const handleRemove = (index)=>{
-  //   console.log(index)
-  //   dispatch({type:"REMOVE",index:index})
-  // }
 
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
@@ -61,12 +56,14 @@ export default function Cart() {
                 <td>{food.size}</td>
                 <td>{food.price}</td>
                 <td>
-                  <button type="button" className="btn btn-light p-0 ">
-                    <Delete
-                      onClick={() => {
-                        dispatch({ type: "REMOVE", index: index });
-                      }}
-                    />
+                  <button
+                    type="button"
+                    className="btn btn-outline-light p-2 px-4 rounded"
+                    onClick={() => {
+                      dispatch({ type: "REMOVE", index: index });
+                    }}
+                  >
+                    Delete
                   </button>{" "}
                 </td>
               </tr>

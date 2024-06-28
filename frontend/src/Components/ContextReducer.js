@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useReducer } from "react";
-import { act } from "react";
 
 const CartStateContext = createContext();
 const CartDispatchContext = createContext();

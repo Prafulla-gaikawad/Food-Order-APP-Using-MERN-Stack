@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { UseDispatchCart, useCart } from "./ContextReducer";
-import { type } from "@testing-library/user-event/dist/type";
 function Card(props) {
   let dispatch = UseDispatchCart();
   let data = useCart();
