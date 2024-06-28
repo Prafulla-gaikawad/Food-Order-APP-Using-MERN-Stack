@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
-const mongoURL =
-  "mongodb+srv://prafulla:mern123@cluster0.25ezqp2.mongodb.net/gofoodmern?retryWrites=true&w=majority&appName=Cluster0";
+require("dotenv").config();
 
 const mongoDB = async () => {
   try {
-    await mongoose.connect(mongoURL, {
+    await mongoose.connect(process.env.MONGO_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
